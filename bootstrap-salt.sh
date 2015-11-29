@@ -3131,13 +3131,15 @@ install_centos_git_deps() {
         fi
     fi
 
-    #if [ "$DISTRO_MAJOR_VERSION" -gt 6 ]; then
+    if [ "$DISTRO_MAJOR_VERSION" -gt 6 ]; then
     #    if [ "$DISTRO_NAME_L" != "oracle_linux" ]; then
     #        yum install -y systemd-python || yum install -y systemd-python --enablerepo=${_EPEL_REPO} || return 1
     #    else
     #        yum install -y systemd-python --enablerepo=${_EPEL_REPO} || return 1
     #    fi
-    #fi
+        yum install git python-pip gcc python-devel systemd-devel
+        pip install git+https://github.com/systemd/python-systemd.git#egg=systemd
+    fi
 
     __git_clone_and_checkout || return 1
 
