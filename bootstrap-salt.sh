@@ -3137,7 +3137,7 @@ install_centos_git_deps() {
     #    else
     #        yum install -y systemd-python --enablerepo=${_EPEL_REPO} || return 1
     #    fi
-        yum install git python-pip gcc python-devel systemd-devel
+        yum install -y git python-pip gcc python-devel systemd-devel
         pip install git+https://github.com/systemd/python-systemd.git#egg=systemd
     fi
 
